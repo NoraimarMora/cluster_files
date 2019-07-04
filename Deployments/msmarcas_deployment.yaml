@@ -1,0 +1,44 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: msmarcas
+spec:
+  selector:
+    matchLabels:
+      app: msmarcas
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: msmarcas
+    spec:
+      containers:
+        - name: msmarcas
+          image: "noraimarm/msmarcas"
+          env:
+          - name: PORT
+            value: 80
+          - name: DB_HOST
+            value: mysql
+          - name: DB_PORT
+            value: 80
+          ports:
+          - containerPort: 80
+          resources:
+            limits:
+              cpu: 0.3
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 15
+            timeoutSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /readiness
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            timeoutSeconds: 1

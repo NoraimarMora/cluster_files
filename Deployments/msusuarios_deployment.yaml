@@ -1,0 +1,44 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: msusuarios
+spec:
+  selector:
+    matchLabels:
+      app: msusuarios
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: msusuarios
+    spec:
+      containers:
+        - name: msusuarios
+          image: "noraimarm/msusuarios"
+          env:
+          - name: PORT
+            value: 80
+          - name: DB_HOST
+            value: mongodb
+          - name: DB_PORT
+            value: 80
+          ports:
+          - containerPort: 80
+          resources:
+            limits:
+              cpu: 0.4
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 15
+            timeoutSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /readiness
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
