@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: msmarcas
-          image: "noraimarm/msmarcas"
+          image: noraimarm/msmarcas:latest
           env:
           - name: PORT
             value: 80

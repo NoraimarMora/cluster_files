@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: mscarrito
-          image: "noraimarm/mscarrito"
+          image: noraimarm/mscarrito:latest
           env:
           - name: PORT
             value: 80

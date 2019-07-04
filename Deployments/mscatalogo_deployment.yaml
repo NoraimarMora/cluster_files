@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: mscatalogo
-          image: "noraimarm/mscatalogo"
+          image: noraimarm/mscatalogo:latest
           env:
           - name: PORT
             value: 80

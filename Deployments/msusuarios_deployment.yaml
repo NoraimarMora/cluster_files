@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: msusuarios
-          image: "noraimarm/msusuarios"
+          image: noraimarm/msusuarios:latest
           env:
           - name: PORT
             value: 80
