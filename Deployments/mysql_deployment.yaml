@@ -13,10 +13,10 @@ spec:
         app: mysql
     spec:
       containers:
-        - name: mongo
+        - name: mysql
           image: mysql:latest
           env:
-          - name: MYSQL_ROOT_PASSWORD
-            value: 
+          - name: MYSQL_ALLOW_EMPTY_PASSWORD
+            value: "yes"
           ports:
-          - containerPort: 80
+          - containerPort: 3306

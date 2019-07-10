@@ -14,14 +14,12 @@ spec:
     spec:
       containers:
         - name: msusuarios
-          image: noraimarm/msusuarios:latest
+          image: noraimarm/msusuarios:v1
           env:
           - name: PORT
-            value: 80
+            value: "80"
           - name: DB_HOST
-            value: mongodb
-          - name: DB_PORT
-            value: 80
+            value: "mongodb"
           ports:
           - containerPort: 80
           resources:
@@ -29,16 +27,16 @@ spec:
               cpu: 0.4
           livenessProbe:
             httpGet:
-              path: /healthz
+              path: /
               port: 80
               scheme: HTTP
-            initialDelaySeconds: 5
+            initialDelaySeconds: 10
             periodSeconds: 15
             timeoutSeconds: 5
           readinessProbe:
             httpGet:
-              path: /readiness
+              path: /
               port: 80
               scheme: HTTP
-            initialDelaySeconds: 5
+            initialDelaySeconds: 10
             timeoutSeconds: 1

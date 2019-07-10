@@ -17,11 +17,11 @@ spec:
           image: noraimarm/msmarcas:latest
           env:
           - name: PORT
-            value: 80
+            value: "80"
           - name: DB_HOST
             value: mysql
           - name: DB_PORT
-            value: 80
+            value: "3306"
           ports:
           - containerPort: 80
           resources:
@@ -29,16 +29,16 @@ spec:
               cpu: 0.3
           livenessProbe:
             httpGet:
-              path: /healthz
+              path: /
               port: 80
               scheme: HTTP
-            initialDelaySeconds: 5
+            initialDelaySeconds: 10
             periodSeconds: 15
             timeoutSeconds: 5
           readinessProbe:
             httpGet:
-              path: /readiness
+              path: /
               port: 80
               scheme: HTTP
-            initialDelaySeconds: 5
+            initialDelaySeconds: 10
             timeoutSeconds: 1
