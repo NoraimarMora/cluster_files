@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: mysql
-          image: mysql:latest
+          image: noraimarm/custom_mysql:latest
           env:
           - name: MYSQL_ALLOW_EMPTY_PASSWORD
             value: "yes"
