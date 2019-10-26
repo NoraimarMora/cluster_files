@@ -39,4 +39,4 @@ spec:
               port: 80
               scheme: HTTP
             initialDelaySeconds: 10
-            timeoutSeconds: 1
+            timeoutSeconds: 5

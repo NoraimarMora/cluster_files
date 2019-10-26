@@ -16,10 +16,14 @@ spec:
         - name: mscatalogo
           image: noraimarm/mscatalogo:latest
           env:
+          - name: PORT
+            value: "80"
           - name: DB_HOST
-            value: http://mysql
+            value: mysql
           - name: DB_PORT
             value: "3306"
+          - name: DB_PASSWORD
+            value: tesiscriminal01
           ports:
           - containerPort: 80
           resources:
@@ -39,4 +43,4 @@ spec:
               port: 80
               scheme: HTTP
             initialDelaySeconds: 10
-            timeoutSeconds: 1
+            timeoutSeconds: 5

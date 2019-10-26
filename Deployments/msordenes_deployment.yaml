@@ -1,25 +1,25 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: msusuarios
+  name: msordenes
 spec:
   selector:
     matchLabels:
-      app: msusuarios
+      app: msordenes
   replicas: 2
   template:
     metadata:
       labels:
-        app: msusuarios
+        app: msordenes
     spec:
       containers:
-        - name: msusuarios
-          image: noraimarm/msusuarios:latest
+        - name: msordenes
+          image: noraimarm/msordenes:latest
           env:
           - name: PORT
             value: "80"
           - name: DB_HOST
-            value: "mongodb"
+            value: mongodb
           ports:
           - containerPort: 80
           resources:

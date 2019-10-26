@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: msordenes
+spec:
+  selector:
+    app: msordenes
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80

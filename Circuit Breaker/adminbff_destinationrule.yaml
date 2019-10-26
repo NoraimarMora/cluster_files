@@ -1,9 +1,9 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: msmarcas
+  name: adminbff
 spec:
-  host: msmarcas
+  host: adminbff
   trafficPolicy:
     connectionPool:
       tcp:
