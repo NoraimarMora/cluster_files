@@ -1,9 +1,9 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: mscusuarios
+  name: msusuarios
 spec:
-  host: mscusuarios
+  host: msusuarios
   trafficPolicy:
     connectionPool:
       tcp:
